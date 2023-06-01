@@ -1,21 +1,12 @@
-'use client';
-
 import Image from 'next/image';
-import { useState } from 'react';
 import type { Metadata } from 'next';
 
-import { Icons } from '@/components';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { ButtonFilters, SearchInput } from '@/components';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { getDirectoryRecent } from '@/mocks/directory-recent';
-import { cn } from '@/lib/utils';
-
-type Layout = 'grid' | 'list';
-type SortBy = 'date' | 'alphabet';
 
 export const metadata: Metadata = {
 	title: 'Directorio',
@@ -93,58 +84,6 @@ const DirectoryPage = () => {
 				<TabsContent value="popular">Change your password here.</TabsContent>
 				<TabsContent value="calification">Change your password here.</TabsContent>
 			</Tabs>
-		</div>
-	);
-};
-
-const SearchInput: React.FC<{ className?: string }> = ({ className }) => {
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-
-		console.log('submit');
-	};
-
-	return (
-		<form onSubmit={handleSubmit} className={cn('relative flex w-full', className)}>
-			<Input placeholder="Buscar" />
-			<Button type="submit" variant="link" className="absolute right-0 top-0 h-full w-10 px-0">
-				<Icons.Search className="h-4 w-4 text-muted-foreground/70" />
-			</Button>
-		</form>
-	);
-};
-
-const ButtonFilters: React.FC<{ className?: string }> = ({ className }) => {
-	const [layout, setLayout] = useState<Layout>('grid');
-	const [sortBy, setSortBy] = useState<SortBy>('date');
-	const [reversed, setReversed] = useState(false);
-
-	return (
-		<div className={cn('flex gap-x-1 md:gap-x-2', className)}>
-			<Button variant="outline" onClick={() => setLayout((previous) => (previous === 'grid' ? 'list' : 'grid'))}>
-				{layout === 'grid' ? (
-					<Icons.LayoutGrid className="h-4 w-4" />
-				) : (
-					<Icons.LayoutList className="h-4 w-4" />
-				)}
-			</Button>
-			<Button variant="outline" onClick={() => setReversed((previous) => !previous)}>
-				{reversed ? (
-					<Icons.ArrowDownNarrowWide className="h-4 w-4" />
-				) : (
-					<Icons.ArrowDownWideNarrow className="h-4 w-4" />
-				)}
-			</Button>
-			<Button
-				variant="outline"
-				onClick={() => setSortBy((previous) => (previous === 'date' ? 'alphabet' : 'date'))}
-			>
-				{sortBy === 'date' ? (
-					<Icons.CalendarDays className="h-4 w-4" />
-				) : (
-					<Icons.ArrowDownAZ className="h-4 w-4" />
-				)}
-			</Button>
 		</div>
 	);
 };
