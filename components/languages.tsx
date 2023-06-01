@@ -11,7 +11,7 @@ export function LanguageToggler() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost" className="h-10 w-10 px-0">
+				<Button variant="ghost" className="h-9 w-9 px-0">
 					<Icons.Languages />
 					<span className="sr-only">Toggle language</span>
 				</Button>
