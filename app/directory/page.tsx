@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const DirectoryPage = () => {
 	return (
-		<div className="flex flex-col gap-y-1 px-0 md:gap-y-2">
+		<div className="mb-6 flex flex-col gap-y-1 px-0 md:gap-y-2">
 			<div className="flex gap-x-1 md:hidden md:gap-x-2">
 				<SearchInput />
 				<ButtonFilters />

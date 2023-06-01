@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type FC } from 'react';
 
 import { Icons } from '@/components';
 import { Button } from '@/components/ui/button';
@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 type Layout = 'grid' | 'list';
 type SortBy = 'date' | 'alphabet';
 
-export const ButtonFilters: React.FC<{ className?: string }> = ({ className }) => {
+export const ButtonFilters: FC<{ className?: string }> = ({ className }) => {
 	const [layout, setLayout] = useState<Layout>('grid');
 	const [sortBy, setSortBy] = useState<SortBy>('date');
 	const [reversed, setReversed] = useState(false);
