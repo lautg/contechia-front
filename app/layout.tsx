@@ -44,6 +44,13 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: light)', color: 'white' },
 		{ media: '(prefers-color-scheme: dark)', color: 'black' },
 	],
+	twitter: {
+		card: 'summary_large_image',
+		title: siteConfig.name,
+		description: siteConfig.description,
+		images: ['https://i.imgur.com/AhynwCl.jpg'],
+		creator: '@contechia',
+	},
 	openGraph: {
 		type: 'website',
 		locale: 'es_ES',
